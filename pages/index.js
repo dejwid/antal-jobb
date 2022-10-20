@@ -2,6 +2,7 @@ import {Area, AreaChart, CartesianGrid, ResponsiveContainer, Legend, Tooltip, XA
 import {useEffect, useState} from "react";
 import {getData} from "./api/data";
 import {groupBy} from "lodash";
+import {initMongoose} from "../libs/mongoose";
 
 export default function Home({data:rows}) {
   const [domLoaded,setDomLoaded] = useState(false);
@@ -49,6 +50,7 @@ export default function Home({data:rows}) {
 }
 
 export async function getServerSideProps() {
+  await initMongoose();
   const data = await getData();
   return {props:{data:JSON.parse(JSON.stringify(data))}};
 }
