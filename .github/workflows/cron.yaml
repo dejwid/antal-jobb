@@ -9,5 +9,4 @@ jobs:
       - name: Call our API route
         run: |
           curl --request POST \
-          --url 'https://antal-jobb.vercel.app/api/fetch' \
-          --header 'Authorization: Bearer ${{ secrets.API_SECRET_KEY }}'
+          --url 'https://antal-jobb.vercel.app/api/fetch'
