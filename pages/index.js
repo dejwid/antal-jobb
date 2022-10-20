@@ -24,7 +24,7 @@ export default function Home({data:rows}) {
   console.log({data});
   return (
     <div>
-      <div className="w-full" style={{height:'100vh'}}>
+      <div className="w-full" style={{height:'90vh'}}>
         {domLoaded && (
           <ResponsiveContainer width="99%">
             <AreaChart data={data}
