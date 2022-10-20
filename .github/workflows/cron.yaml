@@ -1,7 +1,7 @@
 name: fetch
 on:
   schedule:
-    - cron: '20 22 * * *'
+    - cron: '24 20 * * *'
 jobs:
   cron:
     runs-on: ubuntu-latest
