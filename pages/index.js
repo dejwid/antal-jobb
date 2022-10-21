@@ -38,7 +38,7 @@ export default function Home({data:rows}) {
                 <Line type="monotone"
                       key={key}
                       dataKey={key}
-                      strokeWidth={10}
+                      strokeWidth={5}
                       stroke={colors[keys.indexOf(key)]} />
               ))}
             </LineChart>
