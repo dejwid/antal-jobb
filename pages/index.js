@@ -1,4 +1,4 @@
-import {Area, AreaChart, CartesianGrid, ResponsiveContainer, Legend, Tooltip, XAxis, YAxis} from "recharts";
+import {Line, LineChart, CartesianGrid, ResponsiveContainer, Legend, Tooltip, XAxis, YAxis} from "recharts";
 import {useEffect, useState} from "react";
 import {getData} from "./api/data";
 import {groupBy} from "lodash";
@@ -27,7 +27,7 @@ export default function Home({data:rows}) {
       <div className="w-full" style={{height:'90vh'}}>
         {domLoaded && (
           <ResponsiveContainer width="99%">
-            <AreaChart data={data}
+            <LineChart data={data}
                        margin={{ top: 10, right: 10, left: 0, bottom: 45 }}>
               <XAxis dataKey="date" style={{fill:'#aaa',fontSize:'.7rem'}} />
               <YAxis label={{fill:'red'}} style={{fill:'#aaa',fontSize:'.7rem'}}  />
@@ -35,13 +35,13 @@ export default function Home({data:rows}) {
               <Legend layout='vertical' align="center" verticalAlign='bottom' />
               <Tooltip />
               {keys.map(key => (
-                <Area type="monotone"
+                <Line type="monotone"
                       key={key}
                       dataKey={key}
                       strokeWidth={10}
                       stroke={colors[keys.indexOf(key)]} />
               ))}
-            </AreaChart>
+            </LineChart>
           </ResponsiveContainer>
         )}
       </div>
