@@ -4,7 +4,7 @@ import {sortBy, uniqBy} from "lodash";
 
 export async function getData() {
   const rows = JSON.parse(JSON.stringify(await Stat.find().exec()));
-  return sortBy(uniqBy(rows.map(row => {
+  return sortBy(uniqBy(rows.reverse().map(row => {
     return {...row,date:row.createdAt.substring(0,10)};
   }), row => row.source+row.phrase+row.date), 'date');
 }
